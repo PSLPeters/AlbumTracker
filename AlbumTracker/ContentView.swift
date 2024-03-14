@@ -9,8 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @State private var isShowingItemSheet = false
-    @State private var isShowingCurseWordSheet = false
+    @State private var isShowingAlbumSheet = false
+    @State private var isShowingStatisticsSheet = false
     
     @AppStorage("isDarkModeOn") var isDarkModeOn = false
     
@@ -51,7 +51,7 @@ struct ContentView: View {
                 .navigationTitle("Albums")
                 .navigationBarTitleDisplayMode(.large)
                 .searchable(text: $searchTerm, prompt: "Search albums")
-                .sheet(isPresented: $isShowingItemSheet) { AddAlbumSheet() }
+                .sheet(isPresented: $isShowingAlbumSheet) { AddAlbumSheet() }
                 .sheet(item: $albumToEdit)
                 {
                     album in
@@ -72,7 +72,7 @@ struct ContentView: View {
                                 EditButton()
                                 Button("Add Album", systemImage: "plus")
                                 {
-                                    isShowingItemSheet = true
+                                    isShowingAlbumSheet = true
                                     PetersHaptics.process.impact(.soft)
                                 }
                             }
@@ -93,7 +93,7 @@ struct ContentView: View {
                                 {
                                     Button("Add Album")
                                     {
-                                        isShowingItemSheet = true
+                                        isShowingAlbumSheet = true
                                         PetersHaptics.process.impact(.soft)
                                     }
                                 }
@@ -104,16 +104,16 @@ struct ContentView: View {
                     ToolbarItemGroup(placement: .bottomBar)
                         {
                             Button {
-                                isShowingCurseWordSheet = true
+                                isShowingStatisticsSheet = true
                             } label: {
                                 Text("Statistics")
                             }
-                            .sheet(isPresented: $isShowingCurseWordSheet) {
+                            .sheet(isPresented: $isShowingStatisticsSheet) {
                                 VStack {
                                     ZStack {
                                         HStack {
                                             Button {
-                                                isShowingCurseWordSheet = false
+                                                isShowingStatisticsSheet = false
                                             } label: {
                                                 Text("Close")
                                             }
