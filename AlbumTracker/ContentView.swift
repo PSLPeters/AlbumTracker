@@ -132,21 +132,9 @@ struct ContentView: View {
                                             let purchasedTotal = arrAlbums.filter{ $0.selectedAlbumConditionIndex == 0 }.count
                                             let burntTotal = arrAlbums.filter{ $0.selectedAlbumConditionIndex == 1 }.count
                                             
-                                            HStack {
-                                                Text("Albums")
-                                                Spacer()
-                                                Text(String(albumCount.withCommas()))
-                                            }
-                                            HStack {
-                                                Text("Purchased Albums")
-                                                Spacer()
-                                                Text(String(purchasedTotal.withCommas()))
-                                            }
-                                            HStack {
-                                                Text("Burnt Albums")
-                                                Spacer()
-                                                Text(String(burntTotal.withCommas()))
-                                            }
+                                            LabeledContent("Albums", value: albumCount.withCommas())
+                                            LabeledContent("Purchased Albums", value: purchasedTotal.withCommas())
+                                            LabeledContent("Burnt Albums", value: burntTotal.withCommas())
                                         }
                                     }
                                 }
