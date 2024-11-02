@@ -83,7 +83,7 @@ struct ContentView: View {
                         ContentUnavailableView(
                             label:
                                     {
-                                        Label("No Albums", systemImage: "music.quarternote.3")
+                                        Label("No Albums Available", systemImage: "music.quarternote.3")
                                     }
                             , description:
                                     {
